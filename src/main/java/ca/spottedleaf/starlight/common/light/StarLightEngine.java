@@ -1187,7 +1187,6 @@ public abstract class StarLightEngine {
 //                        }
 //                        continue;
 //                    } else {
-                        this.mutablePos1.set(offX, offY, offZ);
                         long flags = 0;
                         if (((ExtendedAbstractBlockState)blockState).scalablelux$isConditionallyFullOpaque()) {
                             final VoxelShape cullingFace = blockState.getFaceOcclusionShape(propagate.getOpposite().nms);
@@ -1223,7 +1222,6 @@ public abstract class StarLightEngine {
             } else {
                 // we actually need to worry about our state here
                 final BlockState fromBlock = this.getBlockState(posX, posY, posZ);
-                this.mutablePos2.set(posX, posY, posZ);
                 for (final AxisDirection propagate : checkDirections) {
                     final int offX = posX + propagate.x;
                     final int offY = posY + propagate.y;
@@ -1269,7 +1267,6 @@ public abstract class StarLightEngine {
 //                        }
 //                        continue;
 //                    } else {
-                        this.mutablePos1.set(offX, offY, offZ);
                         long flags = 0;
                         if (((ExtendedAbstractBlockState)blockState).scalablelux$isConditionallyFullOpaque()) {
                             final VoxelShape cullingFace = blockState.getFaceOcclusionShape(propagate.getOpposite().nms);
@@ -1396,7 +1393,6 @@ public abstract class StarLightEngine {
 //                        }
 //                        continue;
 //                    } else {
-                        this.mutablePos1.set(offX, offY, offZ);
                         long flags = 0;
                         if (((ExtendedAbstractBlockState)blockState).scalablelux$isConditionallyFullOpaque()) {
                             final VoxelShape cullingFace = blockState.getFaceOcclusionShape(propagate.getOpposite().nms);
@@ -1454,7 +1450,6 @@ public abstract class StarLightEngine {
             } else {
                 // we actually need to worry about our state here
                 final BlockState fromBlock = this.getBlockState(posX, posY, posZ);
-                this.mutablePos2.set(posX, posY, posZ);
                 for (final AxisDirection propagate : checkDirections) {
                     final int offX = posX + propagate.x;
                     final int offY = posY + propagate.y;
@@ -1525,7 +1520,6 @@ public abstract class StarLightEngine {
 //                        }
 //                        continue;
 //                    } else {
-                        this.mutablePos1.set(offX, offY, offZ);
                         long flags = 0;
                         if (((ExtendedAbstractBlockState)blockState).scalablelux$isConditionallyFullOpaque()) {
                             final VoxelShape cullingFace = blockState.getFaceOcclusionShape(propagate.getOpposite().nms);

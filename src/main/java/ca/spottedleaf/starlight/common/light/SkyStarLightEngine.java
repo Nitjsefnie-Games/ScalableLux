@@ -304,7 +304,6 @@ public final class SkyStarLightEngine extends StarLightEngine {
         final BlockState centerState = this.getBlockState(worldX, worldY, worldZ);
 
         final BlockState conditionallyOpaqueState;
-        this.recalcCenterPos.set(worldX, worldY, worldZ);
         int opacity = Math.max(1, centerState.getLightDampening());
         if (((ExtendedAbstractBlockState)centerState).scalablelux$isConditionallyFullOpaque()) {
             conditionallyOpaqueState = centerState;
@@ -334,7 +333,6 @@ public final class SkyStarLightEngine extends StarLightEngine {
                 // here the block can be conditionally opaque (i.e light cannot propagate from it), so we need to test that
                 // we don't read the blockstate because most of the time this is false, so using the faster
                 // known transparency lookup results in a net win
-                this.recalcNeighbourPos.set(offX, offY, offZ);
                 final VoxelShape neighbourFace = neighbourState.getFaceOcclusionShape( direction.opposite.nms);
                 final VoxelShape thisFace = conditionallyOpaqueState == null ? Shapes.empty() : conditionallyOpaqueState.getFaceOcclusionShape(direction.nms);
                 if (Shapes.faceShapeOccludes(thisFace, neighbourFace)) {
@@ -626,7 +624,6 @@ public final class SkyStarLightEngine extends StarLightEngine {
 
             final VoxelShape fromShape;
             if (((ExtendedAbstractBlockState)above).scalablelux$isConditionallyFullOpaque()) {
-                this.mutablePos2.set(worldX, startY + 1, worldZ);
                 fromShape = above.getFaceOcclusionShape(AxisDirection.NEGATIVE_Y.nms);
                 if (Shapes.faceShapeOccludes(Shapes.empty(), fromShape)) {
                     // above wont let us propagate

@@ -162,7 +162,6 @@ public final class BlockStarLightEngine extends StarLightEngine {
                 // here the block can be conditionally opaque (i.e light cannot propagate from it), so we need to test that
                 // we don't read the blockstate because most of the time this is false, so using the faster
                 // known transparency lookup results in a net win
-                this.recalcNeighbourPos.set(offX, offY, offZ);
                 final VoxelShape neighbourFace = neighbourState.getFaceOcclusionShape(direction.opposite.nms);
                 final VoxelShape thisFace = conditionallyOpaqueState == null ? Shapes.empty() : conditionallyOpaqueState.getFaceOcclusionShape(direction.nms);
                 if (Shapes.faceShapeOccludes(thisFace, neighbourFace)) {

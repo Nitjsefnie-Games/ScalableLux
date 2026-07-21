@@ -602,7 +602,6 @@ public final class SkyStarLightEngine extends StarLightEngine {
     // clobbering the light values will result in broken propagation)
     protected final int tryPropagateSkylight(final BlockGetter world, final int worldX, int startY, final int worldZ,
                                              final boolean extrudeInitialised, final boolean delayLightSet) {
-        final BlockPos.MutableBlockPos mutablePos = this.mutablePos3;
         final int encodeOffset = this.coordinateOffset;
         final long propagateDirection = AxisDirection.POSITIVE_Y.everythingButThisDirection; // just don't check upwards.
 
@@ -649,7 +648,6 @@ public final class SkyStarLightEngine extends StarLightEngine {
 //                                | (propagateDirection << (6 + 6 + 16 + 4))
 //                );
 //            } else {
-                mutablePos.set(worldX, startY, worldZ);
                 long flags = 0L;
                 if (((ExtendedAbstractBlockState)current).scalablelux$isConditionallyFullOpaque()) {
                     final VoxelShape cullingFace = current.getFaceOcclusionShape(AxisDirection.POSITIVE_Y.nms);
